@@ -1,17 +1,11 @@
-//
-//  LunchboxApp.swift
-//  Lunchbox
-//
-//  Created by Farah Almozaini on 03/04/1447 AH.
-//
-
+// LunchBoxApp.swift
 import SwiftUI
-
 @main
-struct LunchboxApp: App {
+struct LunchBoxApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // أول شاشة يفتحها التطبيق
+            RecipeView(meal: SampleMeals.turkeySandwich)
         }
     }
 }

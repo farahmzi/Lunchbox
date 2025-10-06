@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		304D15FA2E856088006EDD25 /* Lunchbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lunchbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30C200242E9401710086FAC8 /* Lunchbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lunchbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,16 +33,8 @@
 			isa = PBXGroup;
 			children = (
 				304D15FC2E856088006EDD25 /* Lunchbox */,
-				304D15FB2E856088006EDD25 /* Products */,
+				30C200242E9401710086FAC8 /* Lunchbox.app */,
 			);
-			sourceTree = "<group>";
-		};
-		304D15FB2E856088006EDD25 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				304D15FA2E856088006EDD25 /* Lunchbox.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,7 +59,7 @@
 			packageProductDependencies = (
 			);
 			productName = Lunchbox;
-			productReference = 304D15FA2E856088006EDD25 /* Lunchbox.app */;
+			productReference = 30C200242E9401710086FAC8 /* Lunchbox.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +87,7 @@
 			mainGroup = 304D15F12E856088006EDD25;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 304D15FB2E856088006EDD25 /* Products */;
+			productRefGroup = 304D15F12E856088006EDD25;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
