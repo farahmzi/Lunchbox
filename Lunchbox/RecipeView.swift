@@ -1,6 +1,6 @@
 // RecipeView.swift
-
 import SwiftUI
+
 private enum Layout {
     static let cardCorner: CGFloat     = 24
     static let cardHPad: CGFloat       = 24
@@ -12,46 +12,49 @@ private enum Layout {
     static let doneButtonHPad: CGFloat = 30
     static let doneButtonVPad: CGFloat = 20
     static let imageSize: CGFloat = 160
-    static let imageRise: CGFloat = 56 // كم تطلع الصورة فوق الكرت
+    static let imageRise: CGFloat = 56
 }
+
 struct RecipeView: View {
     let meal: Meal
+    @State private var isBookmarked = false
+
     var body: some View {
         ZStack {
             AppBackground()
+
             ScrollView(.vertical) {
                 VStack(spacing: 24) {
-                    // نترك مسافة بسيطة علشان الصورة اللي طالعة فوق الكرت ما تلمس الـDynamic Island
                     Spacer().frame(height: 12)
-                    // الكرت + الصورة كـ overlay أعلى يمين
+
                     VStack(alignment: .leading, spacing: Layout.sectionSpacing) {
-                        // نرفع العنوان لأعلى (ألغينا الـSpacer الكبير)
                         VStack(alignment: .leading, spacing: 6) {
                             Text("RECIPE")
                                 .font(.system(.subheadline, design: .rounded))
                                 .fontWeight(.heavy)
                                 .foregroundColor(.black.opacity(0.5))
+
                             Text(meal.name.uppercased())
                                 .font(.system(.largeTitle, design: .rounded))
                                 .fontWeight(.bold)
                                 .foregroundColor(.black.opacity(0.9))
                                 .minimumScaleFactor(0.75)
                         }
-                        // المكونات
+
                         SectionHeader("INGREDIENTS")
                         VStack(alignment: .leading, spacing: Layout.listRowSpacing) {
                             ForEach(meal.ingredients, id: \.self) { item in
                                 BulletRow(text: item)
                             }
                         }
-                        // الخطوات
+
                         SectionHeader("DIRECTIONS")
                         VStack(alignment: .leading, spacing: Layout.listRowSpacing) {
                             ForEach(Array(meal.instructions.enumerated()), id: \.offset) { idx, step in
                                 NumberedRow(num: idx + 1, text: step)
                             }
                         }
-                        // زر Done داخل السكرول
+
                         Button(action: {}) {
                             Text("Done!")
                                 .font(.system(.title2, design: .rounded))
@@ -76,16 +79,31 @@ struct RecipeView: View {
                             .shadow(color: .black.opacity(0.10), radius: 10, x: 0, y: 6)
                     )
                     .padding(.horizontal, Layout.cardHPad)
-                    // الصورة كـ overlay أعلى يمين – طالعة فوق الكرت
+
                     .overlay(alignment: .topTrailing) {
-                        Image(meal.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: Layout.imageSize, height: Layout.imageSize)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .shadow(color: .black.opacity(0.20), radius: 8, x: 0, y: 4)
-                            .offset(y: -Layout.imageRise) // تطلع فوق حافة الكرت
-                            .padding(.trailing, 20)        // تبعدها شوي عن طرف الشاشة
+                        ZStack(alignment: .topTrailing) {
+                            Button {
+                                isBookmarked.toggle()
+                            }
+                            label: {
+                                Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+                                    .font(.system(size: 26, weight: .bold))
+                                    .foregroundColor(Color(red: 1.00, green: 0.65, blue: 0.0))
+                                    .padding(.trailing, 10)
+                                    .padding(.top, -2)
+                                    .offset(x: -120)
+                                
+                            }
+
+                            Image(meal.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: Layout.imageSize, height: Layout.imageSize)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .shadow(color: .black.opacity(0.20), radius: 8, x: 0, y: 4)
+                                .offset(x: 30, y: -Layout.imageRise)
+                        }
+                        .padding(.trailing, 20)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .top)
@@ -95,7 +113,7 @@ struct RecipeView: View {
         }
     }
 }
-// MARK: - عناصر مساعدة
+
 private struct SectionHeader: View {
     var title: String
     init(_ t: String) { self.title = t }
@@ -107,6 +125,7 @@ private struct SectionHeader: View {
             .padding(.top, 4)
     }
 }
+
 private struct BulletRow: View {
     var text: String
     var body: some View {
@@ -122,6 +141,7 @@ private struct BulletRow: View {
         }
     }
 }
+
 private struct NumberedRow: View {
     var num: Int
     var text: String
@@ -137,8 +157,7 @@ private struct NumberedRow: View {
         }
     }
 }
+
 #Preview {
     RecipeView(meal: SampleMeals.turkeySandwich)
 }
-
-

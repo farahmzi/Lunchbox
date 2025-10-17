@@ -1,3 +1,4 @@
+///
 //  AppBackground.swift
 //  lunchBox2
 //
@@ -9,9 +10,9 @@ struct AppBackground: View {
     var body: some View {
         LinearGradient(
             gradient: Gradient(colors: [
-                Color(red: 1.00, green: 0.95, blue: 0.80), // لون بيج فاتح ناعم
-                Color(red: 1.00, green: 0.85, blue: 0.55), // ذهبي دافئ
-                Color(red: 1.00, green: 0.75, blue: 0.40)  // برتقالي خفيف
+                Color(red: 1.00, green: 0.95, blue: 0.80),
+                Color(red: 1.00, green: 0.85, blue: 0.55),
+                Color(red: 1.00, green: 0.75, blue: 0.40)
             ]),
             startPoint: .topLeading,
             endPoint: .bottomTrailing
@@ -31,7 +32,5 @@ struct AppBackground: View {
         )
     }
 }
-
-
 
 

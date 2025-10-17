@@ -1,3 +1,6 @@
+
+// Meal.swift
+//
 //  Meal.swift
 //  lunchBox2
 //
@@ -11,11 +14,11 @@ struct Meal: Identifiable, Equatable {
     let ingredients: [String]
     let instructions: [String]
 }
-// عيّنة: Turkey Sandwich (تأكدي إن فيه Asset بنفس الاسم)
+
 enum SampleMeals {
     static let turkeySandwich = Meal(
         name: "Turkey Sandwich",
-        imageName: "turkeySandwich",   // اسم الصورة في Assets
+        imageName: "turkeySandwich",
         ingredients: [
             "2 slices whole-grain bread, toasted",
             "3–4 slices roasted turkey breast",
@@ -36,5 +39,7 @@ enum SampleMeals {
         ]
     )
 }
+
+
 
 
