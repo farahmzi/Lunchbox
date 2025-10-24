@@ -24,6 +24,18 @@ The current implementation includes a classic Turkey Sandwich recipe, with easy 
 * **Responsive Design**: Layout constants ensure consistent UI across all device sizes with adaptive text scaling  
 * **Offline Support**: Works seamlessly without an internet connection — all recipes are stored locally within the app
 
+---
+
+## 🎨 The Design
+
+The main icon and user interface elements were thoughtfully designed to convey a soft, friendly, and approachable feel that complements the app’s overall tone.
+
+<img width="1920" height="1080" alt="مشروع أبل الأول - 2025" src="https://github.com/user-attachments/assets/9d0ebb9b-1187-4828-94a0-4f2c6c2a824e" />
+
+--
+> And here is the final version of the icon as used in the app:
+
+<img width="1024" height="1024" alt="appicon" src="https://github.com/user-attachments/assets/190604a8-d32c-4b04-8d54-4f946d348be1" />
 
 ## 📁 Project Structure
 
